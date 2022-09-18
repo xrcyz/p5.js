@@ -100,10 +100,10 @@ p5.Renderer.prototype.pop = function(style) {
  * Resize our canvas element.
  */
 p5.Renderer.prototype.resize = function(w, h) {
-  this.width = w;
-  this.height = h;
-  this.elt.width = w * this._pInst._pixelDensity;
-  this.elt.height = h * this._pInst._pixelDensity;
+  this.elt.width = Math.floor(w * this._pInst._pixelDensity);
+  this.elt.height = Math.floor(h * this._pInst._pixelDensity);
+  this.width = this.elt.width / this._pInst._pixelDensity;
+  this.height = this.elt.height / this._pInst._pixelDensity;
   this.elt.style.width = `${w}px`;
   this.elt.style.height = `${h}px`;
   if (this._isMainCanvas) {

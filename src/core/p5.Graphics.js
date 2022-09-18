@@ -43,8 +43,7 @@ p5.Graphics = function(w, h, renderer, pInst) {
   }
 
   p5.prototype._initializeInstanceVariables.apply(this);
-  this.width = w;
-  this.height = h;
+
   this._pixelDensity = pInst._pixelDensity;
 
   if (r === constants.WEBGL) {
@@ -61,6 +60,8 @@ p5.Graphics = function(w, h, renderer, pInst) {
   });
 
   this._renderer.resize(w, h);
+  this.width = this._renderer.width;
+  this.height = this._renderer.height;
   this._renderer._applyDefaults();
   return this;
 };
